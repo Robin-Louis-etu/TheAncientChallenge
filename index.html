@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="icon.png">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>
+<title>The Ancient Challenge</title>
+</head>
+<body>
+
+<a href="index.html"><div class="banner"></div></a>
+
+<div class="mainNav">
+	<div class="linksContainer">
+		<div class="link"><a class="act" href="index.html">HOME</a></div>
+		<div class="separator"></div>	
+		<div class="link"><a href="rules.html">RULES</a></div>	
+		<div class="separator"></div>	
+		<div class="link"><a href="about.html">ABOUT</a></div>	
+		<div class="separator"></div>	
+		<div class="link"><a href="contact.html">CONTACT</a></div>
+	</div>
+</div>
+
+
+<div class="mainFrame">
+	<div class="modeChoice">
+		<input type="radio" name="mode" id="radioWtf" onchange="changeColor(0)" />
+		<label for="radioWtf">WTF</label>
+
+		<input type="radio" name="mode" id="radioStandard" onchange="changeColor(1)" checked />
+		<label for="radioStandard">Standard</label>
+		
+		<input type="radio" name="mode" id="radioAdapted" onchange="changeColor(2)" />
+		<label for="radioAdapted">Adapted</label>
+	</div>
+	<div class="mainFrameContent">
+		<div class="detailModeContainer">
+			<span class="detailMode">Gives a build with no consistency whatsoever, for the real player</span>
+			<span class="detailMode">A balance between defense and aggressivity, forget about the meta</span>
+			<span class="detailMode">A random build that somewhat fits the chosen hero</span>
+		</div>
+	
+		<div class="insideFrame">
+			<div class="numberPlayersChoice">
+				<input type="radio" name="numberPlayers" id="radioOnePlayers" onchange="changeHeroChoiceButtonsLayout(0)" checked />
+				<label for="radioOnePlayers">Solo</label>
+				
+				<input type="radio" name="numberPlayers" id="radioTwoPlayers" onchange="changeHeroChoiceButtonsLayout(1)" />
+				<label for="radioTwoPlayers">2 Players</label>
+					
+				<input type="radio" name="numberPlayers" id="radioThreePlayers" onchange="changeHeroChoiceButtonsLayout(2)" />
+				<label for="radioThreePlayers">3 Players</label>
+				
+				<input type="radio" name="numberPlayers" id="radioFourPlayers" onchange="changeHeroChoiceButtonsLayout(3)" />
+				<label for="radioFourPlayers">4 Players</label>
+					
+				<input type="radio" name="numberPlayers" id="radioFivePlayers" onchange="changeHeroChoiceButtonsLayout(4)" />
+				<label for="radioFivePlayers">Full Team</label>
+			</div>
+				
+			<div class="recommendation">For a random pick, it is recommended to random in-game for the extra gold, and pick a hero here from the grid.</div>
+			
+			<div class="heroChoiceButtons">
+				<div class="heroChoiceButton" onclick="showHeroes(0)" style="display:table" >
+					<img class="heroChoicePortrait" src="Resources/Heroes/Random_sel.png" alt="Random hero" />
+					<div class="heroChoiceNameContainer"><div class="heroChoiceName"></div></div>
+				</div>
+						
+				<div class="heroChoiceButton" onclick="showHeroes(1)">
+					<img class="heroChoicePortrait" src="Resources/Heroes/Random_sel.png" alt="Random hero" />
+					<div class="heroChoiceNameContainer"><div class="heroChoiceName"></div></div>
+				</div>
+				
+				<div id="breakFlex"></div>
+						
+				<div class="heroChoiceButton" onclick="showHeroes(2)">
+					<img class="heroChoicePortrait" src="Resources/Heroes/Random_sel.png" alt="Random hero" />
+					<div class="heroChoiceNameContainer"><div class="heroChoiceName"></div></div>
+				</div>
+				
+				<div class="heroChoiceButton" onclick="showHeroes(3)">
+					<img class="heroChoicePortrait" src="Resources/Heroes/Random_sel.png" alt="Random hero" />
+					<div class="heroChoiceNameContainer"><div class="heroChoiceName"></div></div>
+				</div>
+
+				<div class="heroChoiceButton" onclick="showHeroes(4)">
+					<img class="heroChoicePortrait" src="Resources/Heroes/Random_sel.png" alt="Random hero" />
+					<div class="heroChoiceNameContainer"><div class="heroChoiceName"></div></div>
+				</div>
+			</div>
+			
+			<hr/>
+		
+			<div class="goButtonArea">
+				<div class="goButton" onclick="generateBuild()">BRING IT ON !</div>
+				By clicking on the following button, you aknowledge, understand and further agree that The Ancient Challenge may not be held accountable for any excessive amount of salt in the game caused by the build generated.	
+			</div>
+				
+			<hr/>
+			<div class="generatedBuilds">
+				<div class="generated" style="display:block">
+					<div class="heroPortrait">
+						<div class="nameLayer"></div>
+						<div class="akaLayer"></div>
+					</div>
+				
+					<div class="itemPicturesContainer">
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+					</div>
+				
+					<div class="copyPaste">
+						<textarea class="textArea" readonly></textarea>
+						<button class="copyButton">Copy build</button>
+					</div>
+				</div>
+				
+				<div class="generated">
+					<div class="heroPortrait">
+						<div class="nameLayer"></div>
+						<div class="akaLayer"></div>
+					</div>
+				
+					<div class="itemPicturesContainer">
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+					</div>
+				
+					<div class="copyPaste">
+						<textarea class="textArea" readonly></textarea>
+						<button class="copyButton">Copy build</button>
+					</div>
+				</div>
+				
+				<div class="generated">
+					<div class="heroPortrait">
+						<div class="nameLayer"></div> 
+						<div class="akaLayer"></div>
+					</div>
+				
+					<div class="itemPicturesContainer">
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+					</div>
+				
+					<div class="copyPaste">
+						<textarea class="textArea" readonly></textarea>
+						<button class="copyButton">Copy build</button>
+					</div>
+				</div>
+				
+				<div class="generated">
+					<div class="heroPortrait">
+						<div class="nameLayer"></div>
+						<div class="akaLayer"></div>
+					</div>
+				
+					<div class="itemPicturesContainer">
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+					</div>
+				
+					<div class="copyPaste">
+						<textarea class="textArea" readonly></textarea>
+						<button class="copyButton">Copy build</button>
+					</div>
+				</div>
+				
+				<div class="generated">
+					<div class="heroPortrait">
+						<div class="nameLayer"></div>
+						<div class="akaLayer"></div>
+					</div>
+				
+					<div class="itemPicturesContainer">
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+						<div class="itemPicture"></div><div class="itemPicture"></div><div class="itemPicture"></div>
+					</div>
+				
+					<div class="copyPaste">
+						<textarea class="textArea" readonly></textarea>
+						<button class="copyButton">Copy build</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+
+<div id="heroesModal">
+	<div class="heroesModalContainer">
+		<div class="cross" onclick="heroesModal.style.display = 'none';"></div>
+		<div class="grids">
+			<div class="strTitle title">
+				<img class="categoryIcon" src="Resources/Heroes/pip_str.png" alt="Strength icon" /><span>  STRENGTH</span>
+			</div>
+			<div class="categoryGrid"></div>
+			
+			<div class="agiTitle title">
+				<img class="categoryIcon" src="Resources/Heroes/pip_agi.png" alt="Agility icon" /><span>  AGILITY</span>
+			</div>
+			<div class="categoryGrid"></div>
+			
+			<div class="intTitle title">
+				<img class="categoryIcon" src="Resources/Heroes/pip_int.png" alt="Intelligence icon" /><span> INTELLIGENCE</span>
+			</div>
+			<div class="categoryGrid"></div>
+		</div>
+		
+		<div class="separator"></div>
+		
+		<div class="randomSection">
+			<div class="randomTitle title">
+				<img class="categoryIcon" src="Resources/Heroes/pip_random.png" alt="Random icon" /><span> RANDOM HERO</span>
+			</div>
+		
+		<br><br>Attribute<br>
+			<input class="randomCheckbox" type="checkbox" id="checkStrength" value="strength" name="strength" checked />
+			<label for="checkStrength"><img class="checkboxImg" src="Resources/Heroes/pip_str.png" alt="Strength icon" /><span> Strength</span></label><br>
+		
+			<input class="randomCheckbox" type="checkbox" id="checkAgility" value="agility" name="agility" checked />
+			<label for="checkAgility"><img class="checkboxImg" src="Resources/Heroes/pip_agi.png" alt="Agility icon" /><span> Agility</span></label><br>
+			
+			<input class="randomCheckbox" type="checkbox" id="checkIntelligence" value="intelligence" name="intelligence" checked />
+			<label for="checkIntelligence"><img class="checkboxImg" src="Resources/Heroes/pip_int.png" alt="Intelligence icon" /><span> Intelligence</span></label><br>
+		
+		<br><br>Role<br>
+			<input class="randomCheckbox" type="checkbox" id="checkRole1" value="role1" name="role1" checked />
+			<label for="checkRole1"><span class="roleGraphic">1</span><span> Carry</span></label><br>
+			
+			<input class="randomCheckbox" type="checkbox" id="checkRole2" value="role2" name="role2" checked />
+			<label for="checkRole2"><span class="roleGraphic">2</span><span> Middle</span></label><br>
+			
+			<input class="randomCheckbox" type="checkbox" id="checkRole3" value="role3" name="role3" checked />
+			<label for="checkRole3"><span class="roleGraphic">3</span><span> Offlane</span></label><br>
+			
+			<input class="randomCheckbox" type="checkbox" id="checkRole4" value="role4" name="role4" checked />
+			<label for="checkRole4"><span class="roleGraphic">4</span><span> Roaming / Jungle</span></label><br>
+			
+			<input class="randomCheckbox" type="checkbox" id="checkRole5" value="role5" name="role5" checked />
+			<label for="checkRole5"><span class="roleGraphic">5</span><span> Support</span></label><br>
+		<br><br>Validate settings<br>
+			<div id="randomSel" class="heroSel enabled" style="background-image:url(Resources/Heroes/Random_sel.png)"></div>
+		</div>
+	</div>
+</div>
+<p id="demo"></p>		
+<script>
+setHeroChosen(0, -1);
+setHeroChosen(1, -1);
+setHeroChosen(2, -1);
+setHeroChosen(3, -1);
+setHeroChosen(4, -1);
+
+copypasta();
+</script>
+</body>
+</html>

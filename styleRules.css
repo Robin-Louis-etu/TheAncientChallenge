@@ -1,0 +1,28 @@
+.mainFrame {
+	background-image: url("Resources/carbon-fibre.png");
+	background-color: hsla(240,0%,20%,0.9);
+	padding: 10px;
+}
+
+.ruleScheme {
+	display: flex;
+	width: 648px;
+	position: relative;
+	margin: auto;
+}
+
+.ruleScheme img {
+	display: block;
+}
+
+.ruleDetail {
+	display:flex;
+	margin: 10px;
+	text-shadow: 0 0 2px black;
+}
+
+.tick {
+	position: absolute;
+	bottom: -25px;
+	right: -25px;
+}
